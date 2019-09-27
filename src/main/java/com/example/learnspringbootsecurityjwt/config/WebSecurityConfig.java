@@ -46,9 +46,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
+
+//        // Chỉ cho phép user đã đăng nhập mới được truy cập đường dẫn /admin/**
+//        http.authorizeRequests().antMatchers("/admin/**").authenticated();
+//
+//        // Cấu hình remember me, thời gian là 1296000 giây
+//        http.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(1296000);
+
         http.authorizeRequests().antMatchers(HttpMethod.GET).permitAll()
                 .antMatchers("/register","/login").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();
+
+//        // Cấu hình cho Login Form.
+//        http.authorizeRequests().and().formLogin()//
+//                .loginProcessingUrl("/j_spring_security_login")//
+//                .loginPage("/login")//
+//                .defaultSuccessUrl("/admin")//
+//                .failureUrl("/login?message=error")//
+//                .usernameParameter("username")//
+//                .passwordParameter("password")
+//                // Cấu hình cho Logout Page.
+//                .and().logout().logoutUrl("/j_spring_security_logout").logoutSuccessUrl("/login?message=logout");
+
     }
 }
