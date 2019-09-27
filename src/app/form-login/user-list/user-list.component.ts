@@ -9,7 +9,7 @@ import {IUser} from '../user';
 })
 export class UserListComponent implements OnInit {
 
-  users: IUser;
+  users: IUser[];
   message: string;
 
   constructor(private userService: UserService) {
