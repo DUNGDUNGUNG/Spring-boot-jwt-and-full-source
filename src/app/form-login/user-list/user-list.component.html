@@ -1,0 +1,18 @@
+<div *ngIf="message"> {{ message }} </div>
+
+<table class="table" *ngIf="users">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">UserName</th>
+    <th scope="col">Email</th>
+    <th scope="col">PhoneNumber</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users, index as i">
+    <th scope="row">{{i+1}}</th>
+    <td>{{ user.username }}</td>
+  </tr>
+  </tbody>
+</table>
